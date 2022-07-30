@@ -1,10 +1,10 @@
-package com.insuranceProject.springboot;
+package com.insurance.firstapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApplicationTests {
+class FirstAppApplicationTests {
 
 	@Test
 	void contextLoads() {

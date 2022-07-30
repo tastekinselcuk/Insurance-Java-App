@@ -1,13 +1,13 @@
-package com.insuranceProject.springboot;
+package com.insurance.firstapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application {
+public class FirstAppApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(FirstAppApplication.class, args);
 	}
 
 }
