@@ -1,0 +1,114 @@
+@charset "UTF-8";
+﻿﻿body {
+    padding: 0;
+    margin: 0;
+    background-color: #F5F7F9;
+    overflow: visible;
+    overflow-x: hidden;
+} 
+/*Navbar*/
+#navbar {
+    background-color: #F5F7F9;
+}
+
+#navItems {
+    margin-right: 80px;
+}
+
+    #navItems li {
+        display: block;
+        padding: 7px 7px 7px;
+    }
+
+        #navItems li:hover {
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            border-radius: 10px 10px 10px 10px;
+        }
+
+    #navItems a {
+        color: #4e4e4e;
+        font-size: 16px;
+        font-family: 'Arial Rounded MT';
+        font-weight: bold;
+    }
+
+#logo {
+    font-family: Arciform;
+    font-size: 26px;
+    margin-left: 30px;
+}
+
+.container {
+    margin-top: 110px !important;
+}
+
+#iletisimBaslık{
+    font-size: 45px;
+    color: #1ABC9C;
+    margin-bottom: 50px;
+    font-family: Arciform;
+}
+
+.col-12 {
+    border-width: 4px;
+    border-color: red;
+}
+/*Greeting*/
+#greeting {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    color: #1d1e1e;   
+    text-align:center;
+    font-size: 45px!important;
+}
+#greeting h2 {
+    color: #4e4e4e;
+}
+/*Form*/
+#form {
+    margin-left: 20%;
+}
+/*İnsurances*/
+#insurances {
+    padding: 2px;
+}
+#insurances .icon {
+    position: relative;
+    border-radius: 10px 10px 10px 10px;
+    margin-left: 12%;
+    padding-top: 10px;
+    width: 150px;
+    background-color: #fff;
+    align-items: center;
+}
+#insurances p {
+    padding: 2px;
+    text-align: center;
+}
+ion-icon {
+    font-size: 64px;
+    padding-left: 25%;
+    position: relative;
+    align-items: center;
+}
+#insurance .icon :hover{
+    color: #728DFF;
+}
+ion-icon :hover{
+    color: #728DFF;
+}
+  
+/*Footer*/
+#footer {
+    height: 50px;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #E9ECEF;
+    color: #6c757d !important;
+    border-radius: 10px 10px 0px 0px;
+}
+
+    #footer p {
+        margin-bottom: 0;
+        margin-left: 100px;
+    }
