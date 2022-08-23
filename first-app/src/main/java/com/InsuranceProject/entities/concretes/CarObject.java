@@ -8,69 +8,65 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="cars_properties")
+@Table(name="traffic_insurance")
 public class CarObject {
 
+	
 	@Id
 	@GeneratedValue
-	@Column(name="Id")
-	private int id;
+	@Column(name="id")
+	private int carId;
 	
-	@Column(name="car_id")
-	private String carId;
+	@Column(name="city")
+	private String city;
 	
-	@Column(name="Brand")
+	@Column(name="car_brand")
 	private String carBrand;
+	
+	@Column(name="car_category")
+	private int categoryId;
+		
+	@Column(name="damage_record")
+	private int damageRecord;
 	
 	@Column(name="insurance_period")
 	private int insurancePeriod;
 	
-	@Column(name="Model")
-	private int model;
-	
-	@Column(name="cadegory_name")
-	private int cadegoryName;
-	
-	@Column(name="cadegory_id")
-	private int cadegoryId;
-	
-	@Column(name="damage_record")
-	private int damageRecord;
 
 	public CarObject() {
 		
 	}
-	public CarObject(int id, String carId, String carBrand, int insurancePeriod, int model, int cadegoryName,
-			int cadegoryId, int damageRecord) {
+
+
+	public CarObject(int carId, String city, String carBrand, int categoryId, int damageRecord,
+			int insurancePeriod) {
 		super();
-		this.id = id;
 		this.carId = carId;
+		this.city = city;
 		this.carBrand = carBrand;
-		this.insurancePeriod = insurancePeriod;
-		this.model = model;
-		this.cadegoryName = cadegoryName;
-		this.cadegoryId = cadegoryId;
+		this.categoryId = categoryId;
 		this.damageRecord = damageRecord;
+		this.insurancePeriod = insurancePeriod;
 	}
 
 
-	public int getId() {
-		return id;
-	}
-
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
-	public String getCarId() {
+	public int getCarId() {
 		return carId;
 	}
 
 
-	public void setCarId(String carId) {
+	public void setCarId(int carId) {
 		this.carId = carId;
+	}
+
+
+	public String getCity() {
+		return city;
+	}
+
+
+	public void setCity(String city) {
+		this.city = city;
 	}
 
 
@@ -84,43 +80,13 @@ public class CarObject {
 	}
 
 
-	public int getInsurancePeriod() {
-		return insurancePeriod;
+	public int getCategoryId() {
+		return categoryId;
 	}
 
 
-	public void setInsurancePeriod(int insurancePeriod) {
-		this.insurancePeriod = insurancePeriod;
-	}
-
-
-	public int getModel() {
-		return model;
-	}
-
-
-	public void setModel(int model) {
-		this.model = model;
-	}
-
-
-	public int getCadegoryName() {
-		return cadegoryName;
-	}
-
-
-	public void setCadegoryName(int cadegoryName) {
-		this.cadegoryName = cadegoryName;
-	}
-
-
-	public int getCadegoryId() {
-		return cadegoryId;
-	}
-
-
-	public void setCadegoryId(int cadegoryId) {
-		this.cadegoryId = cadegoryId;
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
 	}
 
 
@@ -132,4 +98,15 @@ public class CarObject {
 	public void setDamageRecord(int damageRecord) {
 		this.damageRecord = damageRecord;
 	}
+
+
+	public int getInsurancePeriod() {
+		return insurancePeriod;
+	}
+
+
+	public void setInsurancePeriod(int insurancePeriod) {
+		this.insurancePeriod = insurancePeriod;
+	}
+
 }

@@ -42,7 +42,7 @@
 	            border-radius: 10px 10px 10px 10px;
 	        }
 	        
-        	#navItems .active {
+	        #navItems .active {
             box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 0px;
 	        }
 	
@@ -63,18 +63,60 @@
 		    margin-top: 110px !important;
 		}
 		
-
-		/*Greeting*/
-		#greeting {
-		    margin-top: 100px;
-		    margin-bottom: 100px;
-		    color: #1d1e1e;   
-		    text-align:center;
-		    font-size: 45px!important;
+		#iletisimBaslık{
+		    font-size: 45px;
+		    color: #1ABC9C;
+		    margin-bottom: 50px;
+		    font-family: Arciform;
 		}
-		#greeting h2 {
+		
+		.col-12 {
+		    border-width: 4px;
+		    border-color: red;
+		}
+		/*profile inf*/
+		#profile{
+			position:absolute;
+			right:10px;
+			top:10px;
+			margin-right:10px;;
+			border-radius: 50%;
+			background-color:#fff;
+			width:60px;
+			height:60px;
+		}
+		#profile ion-icon{
+			position: relative;
+			bottom:2px;		
+			right:2px;		
+		    align-items: center;
 		    color: #4e4e4e;
+		    margin:0;
+		    padding:0;		
 		}
+        #profile:hover {
+          	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      	}
+      	
+      	#left{
+      		position:relative;
+      		float:left;
+      		background-color:red,
+      	}
+      	#right{
+      		position:relative;
+      		float:right;
+      	}
+		#profileInf{
+			font-size:20px;
+			background-color:#fff;
+			border-radius: 10px 10px 10px 10px;
+		}
+		#profileInf h2{
+			text-align:center;
+		}
+		
+		
 		/*Form*/
 		#form {
 		    margin-left: 20%;
@@ -90,7 +132,9 @@
 		    padding-top: 10px;
 		    width: 150px;
 		    background-color: #fff;
+   		    color: #1d1e1e;
 		    align-items: center;
+		    text-decoration: none;
 		}
 		#insurances p {
 		    padding: 2px;
@@ -132,7 +176,7 @@
     <nav id="navbar" class="navbar navbar-expand-sm navbar-custom">
         <div class="container-fluid">
             <a id="logo" class="navbar-brand ml-30" th:href="@{/index}">
-                <img class="navbar-brand" th:href="@{/index}" src="templates/Logo.png" th:src="@{Logo.png}" alt="Güvende Sigorta" />
+                <img class="navbar-brand" th:href="@{/index}" src="templates/Logo.png" alt="Güvende Sigorta" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -153,87 +197,49 @@
             </ul>
         </div>
     </nav>
-    <!--Greeting-->
-	<div id="greeting" class="container">	
-	    <div class="row">
-	        <div class="col-12">
-	        	<h1>GÜVENDE Sigorta'ya Hoş Geldiniz..</h1>
-				<h2>Lütfen sigorta sorgulamak için bilgilerinizi aşağıdaki forma giriniz.</h1>
-	        </div>
-	        <div class="col-12">
-	        </div>
-	    </div>
-	</div>
-	<!--Form-->
-    <div id="form" class="container">
-		<form th:action="@{insurances}" th:object="${Customer}" method="post">			
-            <div class="row">
-                <div class="col-8">
-                    <div class="form-group">
-                        <label for="first">Ad</label>
-                        <input type="text" class="form-control"  id="firstName" name="firstName" required placeholder="">
-                    </div>
-                </div>
-                <div class="col-8">
-                    <div class="form-group">
-                        <label for="last">Soyad</label>
-                        <input type="text" class="form-control"  id="lastName" name="lastName" required placeholder="">
-                    </div>
-                </div>
-                <div class="col-8">
-                    <div class="form-group">
-                        <label for="company">TC Kimlik Numarası</label>
-                        <input type="text" class="form-control" id="customerId" name="customerId" required placeholder="">
-                    </div>
-
-
-                </div>
-                <div class="col-8">
-
-                    <div class="form-group">
-                        <label for="phone">Telefon Numarası</label>
-                        <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" required placeholder="">
-                    </div>
-                </div>
-
-                <div class="col-8">
-                    <div class="form-group">
-                        <label for="email">Email adress</label>
-                        <input type="email" class="form-control" id="Email" name="Email" required placeholder="">
-                    </div>
-                </div>
-            </div>
-
-            <label class="mt-2 mb-1" for="newsletter">Bilgilendirme E-maili almak ister misiniz?</label>
-            <div class="checkbox">
-
-                <label>
-                    <input type="checkbox" value="Sure!" id="emailPermission"> Almak İstiyorum!
-                </label>
-            </div>
-
-            <button type="submit" class="btn btn-primary mt-3">Submit</button>
-        </form>
+    
+                <div id="profile">                
+           			<ion-icon name="person-circle-outline"></ion-icon>
+        		</div>
+    <!-- Profile İnf -->
+    <div id="profileInf" class="container">
+    	<div class="row">
+    		<h2>Bilgilerim</h2>
+    		<div id="left" col-6>   		
+	            <label for="name">Ad:</label>
+	            <label for="surname">Soyad:</label>
+	            <label for="id">TC Kimlik No:</label>
+	            <label for="phone">Telefon</label>
+	            <label for="email">E-Mail</label>
+            </div>  
+            <div id="right" col-6>
+            	<label for="name">Ad:</label>
+	            <label for="surname">Soyad:</label>
+	            <label for="id">TC Kimlik No:</label>
+	            <label for="phone">Telefon</label>
+	            <label for="email">E-Mail</label>            
+            </div>          
+    	</div>
     </div>
     <!--İnsurances-->
     <div id="insurances" class="container">
         <div class="row">
-            <div class="icon col-3">
+            <a  class="icon col-3" th:href="@{/trafficInsurance}">
                 <ion-icon name="car"></ion-icon>
-                <p>Trafik Sigortası</p>
-            </div>
-            <div class="icon col-3">
+                <p>Profilimi Görüntüle</p>
+            </a>
+            <a class="icon col-3" th:href="@{/progress}">
                 <ion-icon name="shield-checkmark-outline"></ion-icon>
-                <p>kasko</p>
-            </div>
-            <div class="icon col-3">
+                <p>Kaydımı Sil</p>
+            </a>
+            <a class="icon col-3" th:href="@{/progress}">
                 <ion-icon name="medkit-outline"></ion-icon>
                 <p>Tamamlayıcı Sağlık Sigortası</p>
-            </div>
-            <div class="icon col-3">
+            </a>
+            <a class="icon col-3" th:href="@{/progress}">
                 <ion-icon name="home"></ion-icon>
                 <p>Dask</p>
-            </div>
+            </a>
 
         </div>
     </div>
@@ -258,4 +264,5 @@
     </div>
 
 </body>
+
 </html>

@@ -1,22 +1,24 @@
 package com.InsuranceProject.api.controllers;
 
-import java.util.List;
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.InsuranceProject.business.abstracts.CarObjectService;
 import com.InsuranceProject.entities.concretes.CarObject;
 
-@RestController
-@RequestMapping("/api/CarObject")
+@Controller
 public class CarObjectControllers {
 	
+	@Autowired
 	private CarObjectService carObjectService;
 	
-	@GetMapping("/getall")
-	public List<CarObject> getAll(){
-		return this.carObjectService.getAll();
-	}
+	
+    @PostMapping("/trafficResult")
+    public String postTrafficInsurance(@ModelAttribute CarObject carObject){
+    	CarObject addCar= carObjectService.saveCar(carObject);
+    	return "trafficResult";
+    }
+
 }

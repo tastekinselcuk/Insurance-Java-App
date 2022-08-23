@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.InsuranceProject.business.abstracts.CarObjectService;
 import com.InsuranceProject.entities.abstracts.CarObjectDao;
@@ -16,13 +17,28 @@ public class CarObjectManager implements CarObjectService {
 
 	@Autowired
 	public CarObjectManager(CarObjectDao carObjectDao) {
-		super();
 		this.carObjectDao = carObjectDao;
 	}
 
+
 	@Override
-	public List<CarObject> getAll() {
+	public List<CarObject> getAllCar() {
+		ModelAndView mav = new ModelAndView("list-cars");
+		mav.addObject("cars", carObjectDao.findAll());
 		return this.carObjectDao.findAll();
 	}
+
+	@Override
+	public CarObject saveCar(CarObject carObject) {
+		return carObjectDao.save(carObject);
+	}
+
+	@Override
+	public void deleteCar(int id) {
+		carObjectDao.deleteById(id);
+		
+	}
+
+
 
 }

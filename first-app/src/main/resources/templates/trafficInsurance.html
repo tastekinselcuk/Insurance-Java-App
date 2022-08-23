@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org">
+<html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -77,7 +77,17 @@
 		}
 		/*Form*/
 		#form {
-		    margin-left: 20%;
+		    margin-left: 10%;
+		}
+		#form .bilgi{
+			padding-left: 20px;
+		}
+		select{
+			width:100%;
+			height:35px;
+		    border-radius: 3px 3px 3px 3px;
+		    border-color: #D0D0D0;
+		    color: #A8A8A8;
 		}
 		/*İnsurances*/
 		#insurances {
@@ -130,7 +140,7 @@
 
 	<!--Navbar-->
     <nav id="navbar" class="navbar navbar-expand-sm navbar-custom">
-        <div class="container-fluid">
+        <div class="container-fluid"> 
             <a id="logo" class="navbar-brand ml-30" th:href="@{/index}">
                 <img class="navbar-brand" th:href="@{/index}" src="templates/Logo.png" th:src="@{Logo.png}" alt="Güvende Sigorta" />
             </a>
@@ -157,8 +167,8 @@
 	<div id="greeting" class="container">	
 	    <div class="row">
 	        <div class="col-12">
-	        	<h1>GÜVENDE Sigorta'ya Hoş Geldiniz..</h1>
-				<h2>Lütfen sigorta sorgulamak için bilgilerinizi aşağıdaki forma giriniz.</h1>
+	        	<h1>Trafik Sigortası</h1>
+				<h2>Trafik sigortası sorgulamak için bilgilerinizi aşağıdaki forma giriniz.</h1>
 	        </div>
 	        <div class="col-12">
 	        </div>
@@ -166,53 +176,85 @@
 	</div>
 	<!--Form-->
     <div id="form" class="container">
-		<form th:action="@{insurances}" th:object="${Customer}" method="post">			
+		<form th:action="@{trafficResult}" th:object="${CarObject}" method="post">			
             <div class="row">
-                <div class="col-8">
+                <div class="col-6">
                     <div class="form-group">
-                        <label for="first">Ad</label>
-                        <input type="text" class="form-control"  id="firstName" name="firstName" required placeholder="">
+                        <label for="city">Şehir</label>
+                        <input type="text" class="form-control"  id="city" name="city" path="city" required placeholder="">
                     </div>
-                </div>
-                <div class="col-8">
+                
                     <div class="form-group">
-                        <label for="last">Soyad</label>
-                        <input type="text" class="form-control"  id="lastName" name="lastName" required placeholder="">
+                        <label for="carBrand">Araç Markası</label>
+                        <input type="text" class="form-control"  id="carBrand" name="carBrand" path="carBrand" required placeholder="">
                     </div>
-                </div>
-                <div class="col-8">
+                    
                     <div class="form-group">
-                        <label for="company">TC Kimlik Numarası</label>
-                        <input type="text" class="form-control" id="customerId" name="customerId" required placeholder="">
-                    </div>
+                      <label id="types" for="categoryId">Araç Türü</label>
+       			      <select id="categoryId" name="categoryId" path="categoryId" tabindex="4">   
+       			      	 <option value=null>seçiniz</option> 
+       			      	 <option value=1>Sedan</option>	      
+				         <option value=2>SUV</option>  
+				         <option value=3>Hatchback</option>
+   				         <option value=4>Roadster</option>
+				         <option value=5>Pickup</option>  
+				         <option value=6>Micro</option>
+   				         <option value=7>Van</option>
+   				         <option value=8>Coupe</option>
+   				         <option value=9>Supercar</option>
+   				         <option value=10>Campervan</option>
+   				         <option value=11 Truck>Mini Truck</option>
+   				         <option value=12>Cabriolet</option>
+   				         <option value=13>Minivan</option>
+   				         <option value=14>Truck</option>
+			      	</select>   
+			      </div>
+                    
+                    <div class="form-group">
+                      <label for="insurancePeriod">Tarife Dönemi</label>
+       			      <select id="insurancePeriod" name="insurancePeriod" path="insurancePeriod" tabindex="4">   
+       			      	 <option value="null">seçiniz</option> 
+       			      	 <option value=1>1</option>	      
+				         <option value=2>2</option>  
+				         <option value=3>3</option>
+   				         <option value=4>4</option>
+				         <option value=5>5</option>  
+				         <option value=6>5'den fazla</option>
+			      	  </select>   
+			      </div>
 
-
-                </div>
-                <div class="col-8">
-
                     <div class="form-group">
-                        <label for="phone">Telefon Numarası</label>
-                        <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" required placeholder="">
-                    </div>
+                      <label for="damageRecord">Hasar Kaydı Sayısı</label>
+       			      <select id="damageRecord" name="damageRecord" path="damageRecord" tabindex="4">   
+       			      	 <option value="null">seçiniz</option> 
+       			      	 <option value=1>1</option>	      
+				         <option value=2>2</option>  
+				         <option value=3>3</option>
+   				         <option value=4>4</option>
+				         <option value=5>5</option>  
+				         <option value=6>5'den fazla</option>
+			      	</select>
+			      	</div>
+      	            <button type="submit" class="btn btn-primary mt-3">Submit</button>
                 </div>
-
-                <div class="col-8">
-                    <div class="form-group">
-                        <label for="email">Email adress</label>
-                        <input type="email" class="form-control" id="Email" name="Email" required placeholder="">
-                    </div>
+                
+                <div class="bilgi col-6">
+                	<h3>Trafik Sigortası Nedir?</h3>
+                	<p>
+	                	2918 sayılı Karayolları Trafik Kanunu ile belirlenen zorunlu trafik sigortası, kaza durumunda karşı tarafın zararlarını karşılamayı amaçlayan bir uygulamadır. 
+	                	Kazaya uğrayan tarafın mağduriyet yaşamaması için önceden alınan bir önlem olarak değerlendirilebilir.
+                	</p>
+                	<p>
+	                	<strong>Zorunlu mali sorumluluk sigortası nedir</strong> sorusunun cevabı da trafik sigortasıdır. Araba sigortası olarak da bilinen uygulamanın esasları
+	                	“Karayolları Motorlu Araçlar Zorunlu Mali Sorumluluk Sigortasında Tarife Uygulama Esasları Hakkında Yönetmelik” ile belirlenir.
+	               </p> 
+	               <p>	
+	                	Trafik sigortası, her yıl belirlenen limitler çerçevesinde yenilenen bir uygulamadır ve takip gerektirir. 
+	                	Düzenli olarak her sene poliçeyi yenilemek, kusurlu bir kazaya karışıldığı zaman araç sahibine maddi kolaylıklar sağlar. 	                	
+                	</p>
                 </div>
             </div>
 
-            <label class="mt-2 mb-1" for="newsletter">Bilgilendirme E-maili almak ister misiniz?</label>
-            <div class="checkbox">
-
-                <label>
-                    <input type="checkbox" value="Sure!" id="emailPermission"> Almak İstiyorum!
-                </label>
-            </div>
-
-            <button type="submit" class="btn btn-primary mt-3">Submit</button>
         </form>
     </div>
     <!--İnsurances-->

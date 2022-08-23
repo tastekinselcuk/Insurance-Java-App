@@ -42,7 +42,7 @@
 	            border-radius: 10px 10px 10px 10px;
 	        }
 	        
-        	#navItems .active {
+	        #navItems .active {
             box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 0px;
 	        }
 	
@@ -63,7 +63,39 @@
 		    margin-top: 110px !important;
 		}
 		
-
+		#iletisimBaslık{
+		    font-size: 45px;
+		    color: #1ABC9C;
+		    margin-bottom: 50px;
+		    font-family: Arciform;
+		}
+		
+		.col-12 {
+		    border-width: 4px;
+		    border-color: red;
+		}
+		#profile{
+			position:absolute;
+			right:10px;
+			top:10px;
+			margin-right:10px;;
+			border-radius: 50%;
+			background-color:#fff;
+			width:60px;
+			height:60px;
+		}
+		#profile ion-icon{
+			position: relative;
+			bottom:10px;		
+			right:18px;		
+		    align-items: center;
+		    color: #4e4e4e;
+		    margin:0;
+		    padding:0;		
+		}
+        #profile:hover {
+          	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      	}
 		/*Greeting*/
 		#greeting {
 		    margin-top: 100px;
@@ -90,7 +122,9 @@
 		    padding-top: 10px;
 		    width: 150px;
 		    background-color: #fff;
+   		    color: #1d1e1e;
 		    align-items: center;
+		    text-decoration: none;
 		}
 		#insurances p {
 		    padding: 2px;
@@ -132,7 +166,7 @@
     <nav id="navbar" class="navbar navbar-expand-sm navbar-custom">
         <div class="container-fluid">
             <a id="logo" class="navbar-brand ml-30" th:href="@{/index}">
-                <img class="navbar-brand" th:href="@{/index}" src="templates/Logo.png" th:src="@{Logo.png}" alt="Güvende Sigorta" />
+                <img class="navbar-brand" th:href="@{/index}" src="templates/Logo.png" alt="Güvende Sigorta" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -153,87 +187,41 @@
             </ul>
         </div>
     </nav>
+    
+                <div id="profile">    
+                    <a class="nav-link" th:href="@{/profile}"><ion-icon name="person-circle-outline"></ion-icon></a>       
+        		</div>
     <!--Greeting-->
 	<div id="greeting" class="container">	
 	    <div class="row">
 	        <div class="col-12">
-	        	<h1>GÜVENDE Sigorta'ya Hoş Geldiniz..</h1>
-				<h2>Lütfen sigorta sorgulamak için bilgilerinizi aşağıdaki forma giriniz.</h1>
+	        	<p>Kayıt Başarılı</p>
+	        	<p th:text="${customer.firstName}"></p>
+				<h1>Lütfen hesaplamak istediğiniz sigorta çeşidini seçiniz.</h1>
 	        </div>
 	        <div class="col-12">
 	        </div>
 	    </div>
 	</div>
-	<!--Form-->
-    <div id="form" class="container">
-		<form th:action="@{insurances}" th:object="${Customer}" method="post">			
-            <div class="row">
-                <div class="col-8">
-                    <div class="form-group">
-                        <label for="first">Ad</label>
-                        <input type="text" class="form-control"  id="firstName" name="firstName" required placeholder="">
-                    </div>
-                </div>
-                <div class="col-8">
-                    <div class="form-group">
-                        <label for="last">Soyad</label>
-                        <input type="text" class="form-control"  id="lastName" name="lastName" required placeholder="">
-                    </div>
-                </div>
-                <div class="col-8">
-                    <div class="form-group">
-                        <label for="company">TC Kimlik Numarası</label>
-                        <input type="text" class="form-control" id="customerId" name="customerId" required placeholder="">
-                    </div>
-
-
-                </div>
-                <div class="col-8">
-
-                    <div class="form-group">
-                        <label for="phone">Telefon Numarası</label>
-                        <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" required placeholder="">
-                    </div>
-                </div>
-
-                <div class="col-8">
-                    <div class="form-group">
-                        <label for="email">Email adress</label>
-                        <input type="email" class="form-control" id="Email" name="Email" required placeholder="">
-                    </div>
-                </div>
-            </div>
-
-            <label class="mt-2 mb-1" for="newsletter">Bilgilendirme E-maili almak ister misiniz?</label>
-            <div class="checkbox">
-
-                <label>
-                    <input type="checkbox" value="Sure!" id="emailPermission"> Almak İstiyorum!
-                </label>
-            </div>
-
-            <button type="submit" class="btn btn-primary mt-3">Submit</button>
-        </form>
-    </div>
     <!--İnsurances-->
     <div id="insurances" class="container">
         <div class="row">
-            <div class="icon col-3">
+            <a  class="icon col-3" th:href="@{/trafficInsurance}">
                 <ion-icon name="car"></ion-icon>
                 <p>Trafik Sigortası</p>
-            </div>
-            <div class="icon col-3">
+            </a>
+            <a class="icon col-3" th:href="@{/progress}">
                 <ion-icon name="shield-checkmark-outline"></ion-icon>
                 <p>kasko</p>
-            </div>
-            <div class="icon col-3">
+            </a>
+            <a class="icon col-3" th:href="@{/progress}">
                 <ion-icon name="medkit-outline"></ion-icon>
                 <p>Tamamlayıcı Sağlık Sigortası</p>
-            </div>
-            <div class="icon col-3">
+            </a>
+            <a class="icon col-3" th:href="@{/progress}">
                 <ion-icon name="home"></ion-icon>
                 <p>Dask</p>
-            </div>
+            </a>
 
         </div>
     </div>
