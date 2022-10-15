@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Güvende Sigorta</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Güvende Sigorta</title>
 
-<!--Bootstrap-->
+    <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <!--CSS-->
-    <link href="iletisim.css" rel="stylesheet" type="text/css" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
     <!--Font-->
     <link href="//db.onlinewebfonts.com/c/401746ea18398fb74710226c4250341e?family=Arciform" rel="stylesheet" type="text/css" />
-
+    <!--İcon-->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <style>
 		body {
-		    background-color: #c2c9cf;
+		    background-color: #F5F7F9;
 		    overflow: visible;
 		    overflow-x: hidden;
 		}
@@ -68,6 +71,9 @@
 		    border-width: 4px;
 		    border-color: red;
 		}
+		.message{
+			padding:30px;
+		}
 		/*Footer*/
 		#footer {
 		    height: 50px;
@@ -85,25 +91,6 @@
 </style>
 
 </head>
-<body>
-<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>hairdresser Selçuk</title>
-
-    <!--Bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!--CSS-->
-    <link href="iletisim.css" rel="stylesheet" type="text/css" />
-    <!--Font-->
-    <link href="//db.onlinewebfonts.com/c/401746ea18398fb74710226c4250341e?family=Arciform" rel="stylesheet" type="text/css" />
-
-</head>
-
 <body>
     <nav id="navbar" class="navbar navbar-expand-sm navbar-custom">
         <div class="container-fluid">
@@ -129,69 +116,42 @@
             </ul>
         </div>
     </nav>
-    <div class="container">
-        <form>
-            <h2 id="iletisimBaslık">İLETİŞİME GEÇİN</h2>
+    <div id="form" class="container">
+		<form th:action="@{iletisim}" th:object="${Contact}" method="post">			
+            <h2 id="iletisimBaslık">BİZİMLE İLETİŞİME GEÇİN</h2>
             <div class="row">
                 <div class="col-12">
                     <div class="form-group">
                         <label for="first">Ad</label>
-                        <input type="text" class="form-control" required placeholder="" id="first">
+                        <input type="text" class="form-control"  id="firstName" name="firstName" required placeholder="">
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="form-group">
                         <label for="last">Soyad</label>
-                        <input type="text" class="form-control" required placeholder="" id="last">
+                        <input type="text" class="form-control"  id="lastName" name="lastName" required placeholder="">
                     </div>
                 </div>
-            </div>
-
-
-            <div class="row">
                 <div class="col-12">
                     <div class="form-group">
-                        <label for="company">Şirket</label>
-                        <input type="text" class="form-control" required placeholder="" id="company">
+                        <label for="email">Email adress</label>
+                        <input type="text" class="form-control"  id="email" name="email" required placeholder="">
                     </div>
-
-
-                </div>
+                </div> 
                 <div class="col-12">
 
                     <div class="form-group">
                         <label for="phone">Telefon Numarası</label>
-                        <input type="tel" class="form-control" id="phone" required placeholder="phone">
+                        <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" required placeholder="">
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-
-                    <div class="form-group">
-                        <label for="email">Email adress</label>
-                        <input type="email" class="form-control" id="email" required placeholder="email">
-                    </div>
-                </div>
+                </div>   
                 <div class="col-12">
                     <div class="form-group">
-                        <label for="url">Websiteniz <small>(Lütfen içerisine http:// ekleyiniz)</small></label>
-                        <input type="url" class="form-control" id="url" required placeholder="url">
+                        <label for="message">Mesajınız</label>
+                        <input type="text" class="message form-control" id="message" name="message" required placeholder="">
                     </div>
-
-                </div>
+                </div>                               
             </div>
-
-
-
-            <label class="mt-2 mb-1" for="newsletter">Bilgilendirme E-maillerimizi almak ister misiniz?</label>
-            <div class="checkbox">
-
-                <label>
-                    <input type="checkbox" value="Sure!" id="newsletter"> Almak İstiyorum!
-                </label>
-            </div>
-
 
             <button type="submit" class="btn btn-primary mt-3">Submit</button>
         </form>
@@ -213,13 +173,5 @@
             <p>Telif Hakkı ©2021. Tüm hakları Güvende Sigorta işletmesine aittir!</p>
         </div>
     </div>
-</body>
-</html>
-
-
-
-
-
-
 </body>
 </html>

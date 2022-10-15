@@ -1,4 +1,4 @@
-package com.InsuranceProject.api.controllers;
+package com.InsuranceProject.api.controllers.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,6 +53,14 @@ public class WebController {
     	return "trafficResult";
     }
     
+	@GetMapping("/progress")
+	public String GetProgres() {
+		return "progress";
+	}
     
+	@GetMapping("/unauthorized")
+	public String GetError() {
+		return "unauthorized";
+	}
     
 }

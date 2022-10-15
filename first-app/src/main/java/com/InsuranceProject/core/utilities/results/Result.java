@@ -10,7 +10,7 @@ public class Result {
 	}
 
 	public Result(boolean success, String message) {
-		this(success);
+		this(success); //yukarıdaki tek parametreli methodu çağırır.(DRY prensibi)
 		this.message = message;
 	}
 

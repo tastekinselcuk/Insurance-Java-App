@@ -97,25 +97,47 @@
         #profile:hover {
           	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
       	}
-      	
-      	#left{
-      		position:relative;
-      		float:left;
-      		background-color:red,
-      	}
-      	#right{
-      		position:relative;
-      		float:right;
-      	}
+
 		#profileInf{
-			font-size:20px;
+			width: 800px;
+      		height:400px;
 			background-color:#fff;
 			border-radius: 10px 10px 10px 10px;
 		}
 		#profileInf h2{
 			text-align:center;
+			padding-bottom:20px;
 		}
-		
+		#profileInf p {
+			padding: 0;
+			margin-top:15px;
+			color:#fff; 
+			font-size:23px;			
+		}
+		      	
+      	#left{
+      		left:20px;
+      		display:block;
+      		width:300px;
+      		height:300px;
+      		margin:10px;
+      		position:relative;
+      		float:left;
+			border-radius: 10px 10px 10px 10px;      		
+      		background-color:#4e4e4e;
+      	}
+      	#right{
+      	    left:100px;
+      		display:block;
+      		width:300px;
+      		height:300px; 
+      		margin:10px;      		     	
+      		position:relative;
+      		float:right;
+			border-radius: 10px 10px 10px 10px;      		      		
+      		background-color:#4e4e4e;
+      		
+      	}
 		
 		/*Form*/
 		#form {
@@ -153,6 +175,28 @@
 		    color: #728DFF;
 		}
 		  
+		#profile{
+			position:absolute;
+			right:10px;
+			top:10px;
+			margin-right:10px;;
+			border-radius: 50%;
+			background-color:#fff;
+			width:60px;
+			height:60px;
+		}
+		#profile ion-icon{
+			position: relative;
+			bottom:10px;		
+			right:18px;		
+		    align-items: center;
+		    color: #4e4e4e;
+		    margin:0;
+		    padding:0;		
+		}
+        #profile:hover {
+          	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      	}		
 		/*Footer*/
 		#footer {
 		    height: 50px;
@@ -198,48 +242,36 @@
         </div>
     </nav>
     
-                <div id="profile">                
-           			<ion-icon name="person-circle-outline"></ion-icon>
-        		</div>
+    <div id="profile">    
+    	<a class="nav-link" th:href="@{/profile}"><ion-icon name="person-circle-outline"></ion-icon></a>       
+	</div>   
+	
     <!-- Profile İnf -->
     <div id="profileInf" class="container">
     	<div class="row">
     		<h2>Bilgilerim</h2>
-    		<div id="left" col-6>   		
-	            <label for="name">Ad:</label>
-	            <label for="surname">Soyad:</label>
-	            <label for="id">TC Kimlik No:</label>
-	            <label for="phone">Telefon</label>
-	            <label for="email">E-Mail</label>
+    		<div id="left" class="col-6"> 
+    			<p>Ad:</p>  		
+    			<p>Soyad:</p>  		
+    			<p>TC Kimlik:</p>  		
+    			<p>Telefon:</p>  		
+    			<p>E-Mail:</p>  		
             </div>  
-            <div id="right" col-6>
-            	<label for="name">Ad:</label>
-	            <label for="surname">Soyad:</label>
-	            <label for="id">TC Kimlik No:</label>
-	            <label for="phone">Telefon</label>
-	            <label for="email">E-Mail</label>            
+            <div id="right" class="col-6">
+    			<p>Soyad:</p>  		
+    			<p>TC Kimlik:</p>  		
+    			<p>Telefon:</p>  		
+    			<p>E-Mail:</p>           
             </div>          
     	</div>
     </div>
     <!--İnsurances-->
     <div id="insurances" class="container">
         <div class="row">
-            <a  class="icon col-3" th:href="@{/trafficInsurance}">
-                <ion-icon name="car"></ion-icon>
-                <p>Profilimi Görüntüle</p>
-            </a>
-            <a class="icon col-3" th:href="@{/progress}">
-                <ion-icon name="shield-checkmark-outline"></ion-icon>
+            <a class="icon col-3" th:href="@{/delete}">
                 <p>Kaydımı Sil</p>
             </a>
-            <a class="icon col-3" th:href="@{/progress}">
-                <ion-icon name="medkit-outline"></ion-icon>
-                <p>Tamamlayıcı Sağlık Sigortası</p>
-            </a>
-            <a class="icon col-3" th:href="@{/progress}">
-                <ion-icon name="home"></ion-icon>
-                <p>Dask</p>
-            </a>
+
 
         </div>
     </div>

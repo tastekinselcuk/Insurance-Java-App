@@ -1,24 +1,31 @@
 package com.InsuranceProject.entities.concretes;
 
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","CarObject"}) //Bir veriyi birden fazla defa yazdırıp sonsuz döngüye girmesini engellemek için yazıldı.
 @Table(name="customer")
 public class Customer {
-	
 	@Id
-	@GeneratedValue
-	@Column(name="Id")
-	private int Id;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="customer_id")
+	private int customerId;
+	
+	@Column(name="kimlik_no")
+	private String Id;
 	
 	@Column(name="first_name")
 	private String firstName;
@@ -26,20 +33,20 @@ public class Customer {
 	@Column(name="last_name")
 	private String lastName;
 	
-	@Column(name="customer_id")
-	private int customerId;
-	
 	@Column(name="phone_number")
 	private String phoneNumber;
 	
 	@Column(name="email")
 	private String email;
+	
+	@OneToMany(mappedBy= "customer")
+	private List<CarObject> carObjects; //müşterilerin araçları - herbir muşteri birden fazla araca sahip olabilir
 
 	public Customer() {
 		
 	}
 	
-	public Customer(int id, String firstName, String lastName, int customerId, String phoneNumber, String email) {
+	public Customer(String id, String firstName, String lastName, int customerId, String phoneNumber, String email) {
 		super();
 		Id = id;
 		this.firstName = firstName;
@@ -49,11 +56,11 @@ public class Customer {
 		this.email = email;
 	}
 
-	public int getId() {
+	public String getId() {
 		return Id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		Id = id;
 	}
 

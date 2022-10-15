@@ -2,18 +2,35 @@ package com.InsuranceProject.business.abstracts;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
 import com.InsuranceProject.core.utilities.results.DataResult;
 import com.InsuranceProject.core.utilities.results.Result;
-import com.InsuranceProject.entities.abstracts.CustomerDao;
-import com.InsuranceProject.entities.concretes.CarObject;
 import com.InsuranceProject.entities.concretes.Customer;
 
 public interface CustomerService {
 	
-	List<Customer> getAllCustomer();
 	public Customer saveCustomer(Customer customer);
-	public void deleteCustomer(int id);
+//	public void deleteCustomer(int id);
+	
+	DataResult<List<Customer>> getAllCustomer();
+	
+	Result add(Customer customer);
+	
+	Result delete(Customer customer);
+
+	//Dao'da yazdığım kendi methodlarım
+	DataResult<List<Customer>> getByfirstName(String firstName);
+	
+	DataResult<Customer> getByfirstNameAndCustomerId(String firstName, int customerId);
+	
+	DataResult<List<Customer>> getByfirstNameOrCustomerId(String firstName, int customerId);
+	
+	DataResult<List<Customer>> getByCustomerIdIn(List<Integer> customers);
+	
+	DataResult<List<Customer>> getByfirstNameContains(String firstName);
+	
+	DataResult<List<Customer>> getByfirstNameStartsWith(String firstName);
+	
+	DataResult<List<Customer>> getByNameAndId(String firstName, int customerId);
 
 	
 }

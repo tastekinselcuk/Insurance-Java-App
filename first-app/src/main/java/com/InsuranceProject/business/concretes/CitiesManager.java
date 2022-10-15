@@ -1,42 +1,39 @@
 package com.InsuranceProject.business.concretes;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.InsuranceProject.business.abstracts.CarObjectService;
+import com.InsuranceProject.business.abstracts.CitiesService;
 import com.InsuranceProject.dataAccess.abstracts.CarObjectDao;
+import com.InsuranceProject.dataAccess.abstracts.CitiesDao;
 import com.InsuranceProject.entities.concretes.CarObject;
+import com.InsuranceProject.entities.concretes.Cities;
 
 @Service
-public class CarObjectManager implements CarObjectService {
+public class CitiesManager implements CitiesService{
 	
+	private CitiesDao citiesDao;
 	private CarObjectDao carObjectDao;
-
+	private CarObject carObject;
+	
 	@Autowired
-	public CarObjectManager(CarObjectDao carObjectDao) {
-		this.carObjectDao = carObjectDao;
-	}
-
-
-	@Override
-	public List<CarObject> getAllCar() {
-		ModelAndView mav = new ModelAndView("list-cars");
-		mav.addObject("cars", carObjectDao.findAll());
-		return this.carObjectDao.findAll();
+	public CitiesManager(CitiesDao citiesDao) {
+		this.citiesDao = citiesDao;
 	}
 
 	@Override
-	public CarObject saveCar(CarObject carObject) {
-		return carObjectDao.save(carObject);
+	public Cities getBycityName(String cityName) {
+    	System.out.println(this.citiesDao.getBycityName(cityName));
+		return this.citiesDao.getBycityName(cityName);
 	}
 
-	@Override
-	public void deleteCar(int id) {
-		carObjectDao.deleteById(id);
-	}
+//	//sigorta sorgulama bölümünden alınan şehiri parametre olarak vererek şehir tablosundan size verisini çektik
+//	@Override
+//	public int getBycityName(String cityName) {	
+//		Cities city = this.citiesDao.getBycityName(cityName);
+//		return city.getCitySize();
+//	}
+
 	
 	public int findCityByName(String CityName) {
 		
@@ -44,11 +41,17 @@ public class CarObjectManager implements CarObjectService {
 		int[] sizes={14030, 7614, 14230, 11376, 5520, 25706, 20723, 7436, 8007, 14292, 4307, 8125, 6707, 7410, 6887, 11043, 9737, 7388, 12820, 11868, 15355, 6279, 9153, 11909, 25066, 13652, 6000, 6934, 6575, 7121, 5403, 8993, 15853, 5196, 11973, 9587, 13108, 1691, 6550, 6570, 3626, 38257, 11889, 12313, 13810, 14327, 8891, 13338, 8196, 5467, 7312, 6001, 3920, 4817, 9579, 5406, 5862, 28488, 6218, 9959, 6685, 7774, 18584, 5341, 19069, 14123, 4420, 7626, 3652, 9163, 4365, 4694, 7172, 2120, 5661, 3593, 847, 2420, 1642, 3767, 3641};
 		int citySize = 0;
 		for(int i=0;i<sehirler.length;i++){
-			if(sehirler[i].equals(CityName)) {
+			if(CityName  == sehirler[i] ) {
 				citySize = sizes[i];
 			}
-		}
+			else {
+				System.out.println("döngü çalışmıyor");
+			}
+		} 
 		return citySize;
 	}
+
+
+
 
 }
