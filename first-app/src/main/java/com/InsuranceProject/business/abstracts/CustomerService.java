@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.InsuranceProject.core.utilities.results.DataResult;
 import com.InsuranceProject.core.utilities.results.Result;
-import com.InsuranceProject.entities.concretes.Customer;
+import com.InsuranceProject.entities.concretes.Users.Customer;
 
 public interface CustomerService {
 	
@@ -21,6 +21,8 @@ public interface CustomerService {
 	DataResult<List<Customer>> getByfirstName(String firstName);
 	
 	DataResult<Customer> getByfirstNameAndCustomerId(String firstName, int customerId);
+	
+	//DataResult<Customer> findTopByOrderByCustomerIdDesc(int customerId);
 	
 	DataResult<List<Customer>> getByfirstNameOrCustomerId(String firstName, int customerId);
 	

@@ -1,6 +1,5 @@
 package com.InsuranceProject.entities.concretes.Users;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,45 +10,41 @@ import javax.persistence.Table;
 import com.InsuranceProject.entities.abstracts.Users;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler","CarObject"}) //Bir veriyi birden fazla defa yazdırıp sonsuz döngüye girmesini engellemek için yazıldı.
-@Table(name="customer")
-public class Customer extends Users {
-	
+@Table(name="admin")
+public class Admin extends Users {
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="customer_id")
-	private int customerId;	
-
+	@Column(name="admin_id")
+	private int adminId;
+	
 	@Column(name="phone_number")
 	private String phoneNumber;
 	
 	@Column(name="email")
 	private String email;
-	
-	
-//	@OneToMany(mappedBy= "customer")
-//	private List<CarObject> carObjects; //müşterilerin araçları - herbir muşteri birden fazla araca sahip olabilir
 
-	public Customer() {
+	public Admin() {
 		
 	}
 	
-	public Customer(int customerId, String phoneNumber, String email) {
+
+	public Admin(int adminId, String phoneNumber, String email) {
 		super();
-		this.customerId = customerId;
+		this.adminId = adminId;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
 	}
 
 
 	public int getCustomerId() {
-		return customerId;
+		return adminId;
 	}
 
 	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
+		this.adminId = customerId;
 	}
 
 	public String getPhoneNumber() {
@@ -67,6 +62,5 @@ public class Customer extends Users {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
 
 }

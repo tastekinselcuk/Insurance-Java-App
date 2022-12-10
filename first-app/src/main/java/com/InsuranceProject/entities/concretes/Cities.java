@@ -15,7 +15,7 @@ public class Cities {
 	private int cityId;
 
 	@Column(name="city_name")
-	private int cityName;
+	private String cityName;
 	
 	@Column(name="city_size")
 	private int citySize;
@@ -24,7 +24,7 @@ public class Cities {
 		
 	}
 
-	public Cities(int cityId, int cityName, int citySize) {
+	public Cities(int cityId, String cityName, int citySize) {
 		super();
 		this.cityId = cityId;
 		this.cityName = cityName;
@@ -39,11 +39,11 @@ public class Cities {
 		this.cityId = cityId;
 	}
 
-	public int getCityName() {
+	public String getCityName() {
 		return cityName;
 	}
 
-	public void setCityName(int cityName) {
+	public void setCityName(String cityName) {
 		this.cityName = cityName;
 	}
 

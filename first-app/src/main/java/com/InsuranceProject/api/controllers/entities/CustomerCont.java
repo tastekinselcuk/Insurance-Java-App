@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.InsuranceProject.business.abstracts.CustomerService;
 import com.InsuranceProject.core.utilities.results.DataResult;
 import com.InsuranceProject.core.utilities.results.Result;
-import com.InsuranceProject.entities.concretes.Customer;
+import com.InsuranceProject.entities.concretes.Users.Customer;
 
 @RestController
 @RequestMapping("api/customers")

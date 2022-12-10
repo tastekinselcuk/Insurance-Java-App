@@ -15,7 +15,7 @@ import com.InsuranceProject.core.utilities.results.Result;
 import com.InsuranceProject.core.utilities.results.SuccesDataResult;
 import com.InsuranceProject.core.utilities.results.SuccessResult;
 import com.InsuranceProject.dataAccess.abstracts.CustomerDao;
-import com.InsuranceProject.entities.concretes.Customer;
+import com.InsuranceProject.entities.concretes.Users.Customer;
 
 @Service
 public class CustomerManager implements CustomerService {
@@ -101,6 +101,11 @@ public class CustomerManager implements CustomerService {
 		return new SuccesDataResult<List<Customer>>(this.customerDao.getByNameAndId(firstName, customerId),"Data Listelendi");
 
 	}
+
+//	@Override
+//	public DataResult<Customer> findTopByOrderByCustomerIdDesc(int customerId) {
+//		return new SuccesDataResult<Customer>(this.customerDao.findTopByOrderByCustomerIdDesc(customerId));
+//	}
 
 
 

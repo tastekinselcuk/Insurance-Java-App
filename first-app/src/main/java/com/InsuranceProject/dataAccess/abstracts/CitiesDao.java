@@ -6,10 +6,9 @@ import com.InsuranceProject.entities.concretes.Cities;
 
 public interface CitiesDao extends JpaRepository<Cities, Integer> {
 
-	Cities getBycityName(String cityName); //list yapılacak
+	Cities getByCityName(String cityName);
 	//sigorta sorgulama bölümünden alınan şehiri parametre olarak vererek şehir tablosundan size verisini çektik
 
-	
 	
 
 

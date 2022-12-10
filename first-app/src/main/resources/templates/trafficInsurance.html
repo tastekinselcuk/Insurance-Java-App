@@ -204,7 +204,7 @@
 	</div>
 	<!--Form-->
     <div id="form" class="container">
-		<form th:action="@{trafficResult}" th:object="${CarObject}" method="post">			
+		<form th:action="@{trafficResult}" th:object="${Car}" method="post">			
             <div class="row">
                 <div class="col-6">              	
                     <div class="form-group">
@@ -393,7 +393,8 @@
 				         <option value=5>5</option>  
 				         <option value=6>5'den fazla</option>
 			      	  </select>
-			      	</div>      	            
+			      	</div>
+			      	
                     <button type="submit" class="btn btn-primary mt-3">Submit</button>
                 </div>
                 

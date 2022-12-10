@@ -8,12 +8,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.InsuranceProject.business.abstracts.CarObjectService;
 import com.InsuranceProject.dataAccess.abstracts.CarObjectDao;
-import com.InsuranceProject.entities.concretes.CarObject;
+import com.InsuranceProject.dataAccess.abstracts.CitiesDao;
+import com.InsuranceProject.entities.concretes.Cities;
+import com.InsuranceProject.entities.concretes.Products.Car;
 
 @Service
 public class CarObjectManager implements CarObjectService {
 	
 	private CarObjectDao carObjectDao;
+	private CitiesDao citiesDao;
 
 	@Autowired
 	public CarObjectManager(CarObjectDao carObjectDao) {
@@ -22,15 +25,15 @@ public class CarObjectManager implements CarObjectService {
 
 
 	@Override
-	public List<CarObject> getAllCar() {
+	public List<Car> getAllCar() {
 		ModelAndView mav = new ModelAndView("list-cars");
 		mav.addObject("cars", carObjectDao.findAll());
 		return this.carObjectDao.findAll();
 	}
 
 	@Override
-	public CarObject saveCar(CarObject carObject) {
-		return carObjectDao.save(carObject);
+	public Car saveCar(Car car) {
+		return carObjectDao.save(car);
 	}
 
 	@Override
@@ -49,6 +52,12 @@ public class CarObjectManager implements CarObjectService {
 			}
 		}
 		return citySize;
+	}
+
+
+	@Override
+	public Car getBycityName(String cityName) {
+		return carObjectDao.getBycityName(cityName);
 	}
 
 }

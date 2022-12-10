@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.InsuranceProject.entities.concretes.Customer;
+import com.InsuranceProject.entities.concretes.Users.Customer;
 
 @Controller
 public class WebController {
@@ -61,6 +61,10 @@ public class WebController {
 	@GetMapping("/unauthorized")
 	public String GetError() {
 		return "unauthorized";
+	}
+	@GetMapping("/registration")
+	public String Getregister() {
+		return "registration";
 	}
     
 }
