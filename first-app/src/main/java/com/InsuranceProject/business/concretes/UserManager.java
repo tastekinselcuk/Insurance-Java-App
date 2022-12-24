@@ -1,5 +1,7 @@
 package com.InsuranceProject.business.concretes;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +34,11 @@ public class UserManager implements UserService {
 	@Override
 	public DataResult<User> findByEmail(String email) {
 		return new SuccesDataResult<User>(this.userDao.findByEmail(email),"Kullanıcı bulundu");
+	}
+
+	@Override
+	public List<User> getAllUsers() {
+		return this.userDao.findAll();
 	}
 	
 }

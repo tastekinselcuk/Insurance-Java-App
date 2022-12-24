@@ -1,13 +1,12 @@
 package com.InsuranceProject.business.concretes;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import com.InsuranceProject.business.abstracts.ContactService;
-import com.InsuranceProject.dataAccess.abstracts.CarObjectDao;
 import com.InsuranceProject.dataAccess.abstracts.ContactDao;
 import com.InsuranceProject.entities.concretes.Contact;
-import com.InsuranceProject.entities.concretes.Users.Customer;
 
 @Service
 public class ContactManager implements ContactService {

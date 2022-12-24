@@ -1,6 +1,7 @@
 package com.InsuranceProject.business.concretes;
 
 import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ import com.InsuranceProject.core.utilities.results.DataResult;
 import com.InsuranceProject.core.utilities.results.Result;
 import com.InsuranceProject.core.utilities.results.SuccesDataResult;
 import com.InsuranceProject.core.utilities.results.SuccessResult;
-import com.InsuranceProject.dataAccess.abstracts.CustomerDao;
+import com.InsuranceProject.dataAccess.abstracts.Users.CustomerDao;
 import com.InsuranceProject.entities.concretes.Users.Customer;
 
 @Service

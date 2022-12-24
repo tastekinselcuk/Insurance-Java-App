@@ -32,12 +32,7 @@ public class WebController {
     public String getContact(){
     	return "iletisim";
     }
-    
-    @GetMapping("/trafficInsurance")
-    public String getTraffic(){
-    	return "trafficInsurance";
-    }
-    
+
     @GetMapping("/insurances")
 	public String PostInsurances() {
     	return "insurances";
@@ -62,9 +57,14 @@ public class WebController {
 	public String GetError() {
 		return "unauthorized";
 	}
+	
 	@GetMapping("/registration")
 	public String Getregister() {
 		return "registration";
 	}
+	
+
+
+	
     
 }

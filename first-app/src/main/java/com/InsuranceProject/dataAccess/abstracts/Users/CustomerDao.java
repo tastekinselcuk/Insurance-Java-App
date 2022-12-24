@@ -1,4 +1,4 @@
-package com.InsuranceProject.dataAccess.abstracts;
+package com.InsuranceProject.dataAccess.abstracts.Users;
 
 import java.util.List;
 
